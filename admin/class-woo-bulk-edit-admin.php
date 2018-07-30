@@ -20,7 +20,7 @@
  * @subpackage Plugin_Name/admin
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Admin {
+class Woo_Bulk_Edit_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class Plugin_Name_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
+		 * defined in Woo_Bulk_Edit_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Loader will then create the relationship
+		 * The Woo_Bulk_Edit_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,16 +88,51 @@ class Plugin_Name_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
+		 * defined in Woo_Bulk_Edit_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Loader will then create the relationship
+		 * The Woo_Bulk_Edit_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-bulk-edit-admin.js', array( 'jquery' ), $this->version, false );
 
+	}
+
+	/**
+	 * Menu building code for the admin area Menu.
+	 *
+	 * @since    1.0.0
+	 */
+	public function woo_bulk_edit_menu() {
+
+		/**
+		 * This function is provided for demonstration purposes only.
+		 *
+		 * An instance of this class should be passed to the run() function
+		 * defined in Woo_Bulk_Edit_Loader as all of the hooks are defined
+		 * in that particular class.
+		 *
+		 * The Woo_Bulk_Edit_Loader will then create the relationship
+		 * between the defined hooks and the functions defined in this
+		 * class.
+		 */
+
+		add_menu_page(
+			__( 'Woo Bulk Edit', 'woo-bulk-edit' ),
+			__( 'Woo Bulk Edit', 'woo-bulk-edit' ),
+			'manage_woocommerce',
+			'woo-bulk-edit',
+			array( $this, 'index' ),
+			'',
+			7
+		);
+
+	}
+
+	public function index() {
+		load_template(plugin_dir_path(  __FILE__  )  .  'partials/woo-bulk-edit-admin-display.php', false);
 	}
 
 }

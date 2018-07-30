@@ -20,7 +20,7 @@
  * @subpackage Plugin_Name/public
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Public {
+class Woo_Bulk_Edit_Public {
 
 	/**
 	 * The ID of this plugin.

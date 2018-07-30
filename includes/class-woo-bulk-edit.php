@@ -9,8 +9,8 @@
  * @link       http://example.com
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    Woo_Bulk_Edit
+ * @subpackage Woo_Bulk_Edit/includes
  */
 
 /**
@@ -23,8 +23,8 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @package    Woo_Bulk_Edit
+ * @subpackage Woo_Bulk_Edit/includes
  * @author     Your Name <email@example.com>
  */
 class Woo_Bulk_Edit {
@@ -67,12 +67,12 @@ class Woo_Bulk_Edit {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'WOO_BULK_EDIT_VERSION' ) ) {
+			$this->version = WOO_BULK_EDIT_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'plugin-name';
+		$this->plugin_name = 'woo-bulk-edit';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -156,6 +156,9 @@ class Woo_Bulk_Edit {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		//add_action( 'admin_menu', 'my_plugin_menu' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_bulk_edit_menu' );
 
 	}
 
