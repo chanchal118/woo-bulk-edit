@@ -29,4 +29,30 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+    $(function() {
+
+        $('#product-search-form input[type="submit"]').on('click', function (e) {
+            console.log('submit got clicked');
+            console.log(ajaxurl);
+            e.preventDefault();
+            // send the ajax request
+            var data = {
+                'action': 'find_product',
+                'whatever': 22
+            };
+
+            // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+            /*jQuery.post(ajaxurl, data, function(response) {
+                alert('Got this from the server: ' + response);
+            });*/
+            $.ajax({
+                method: "POST",
+                url: ajaxurl,
+                data: data
+            }).done(function( msg ) {
+                    alert( "Data Saved: " + msg );
+                });
+        });
+    });
+
 })( jQuery );

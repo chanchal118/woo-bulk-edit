@@ -159,7 +159,7 @@ class Woo_Bulk_Edit {
 
 		//add_action( 'admin_menu', 'my_plugin_menu' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'woo_bulk_edit_menu' );
-
+		$this->loader->add_action( 'wp_ajax_find_product', $plugin_admin, 'find_product' );
 	}
 
 	/**

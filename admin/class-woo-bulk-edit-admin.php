@@ -135,4 +135,14 @@ class Woo_Bulk_Edit_Admin {
 		load_template(plugin_dir_path(  __FILE__  )  .  'partials/woo-bulk-edit-admin-display.php', false);
 	}
 
+	public function find_product() {
+		$whatever = intval( $_POST['whatever'] );
+
+		$whatever += 10;
+
+		echo $whatever;
+
+		wp_die();
+	}
+
 }

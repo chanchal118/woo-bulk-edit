@@ -16,3 +16,10 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <h1>ssss</h1>
 <p>thhhis is some te</p>
+<form id="product-search-form">
+    <input type="text" name="product-name">
+    <input type="submit" value="Search">
+</form>
+<div id="product-results">
+
+</div>
